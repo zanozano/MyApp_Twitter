@@ -3,7 +3,9 @@
 one:
   description: MyString
   username: MyString
+  profile: 
 
 two:
   description: MyString
   username: MyString
+  profile: 

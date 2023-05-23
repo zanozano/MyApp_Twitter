@@ -7,10 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-# Crear 10 tweets ficticios
+# Crear 100 tweets ficticios
 100.times do
   Tweet.create(
     description: Faker::Lorem.sentence,
-    username: Faker::Internet.user_name
+    username: Faker::Internet.user_name,
+    profile: Faker::Avatar.image
   )
 end

@@ -15,6 +15,7 @@ class TweetsTest < ApplicationSystemTestCase
     click_on "New tweet"
 
     fill_in "Description", with: @tweet.description
+    fill_in "Profile", with: @tweet.profile
     fill_in "Username", with: @tweet.username
     click_on "Create Tweet"
 
@@ -27,6 +28,7 @@ class TweetsTest < ApplicationSystemTestCase
     click_on "Edit this tweet", match: :first
 
     fill_in "Description", with: @tweet.description
+    fill_in "Profile", with: @tweet.profile
     fill_in "Username", with: @tweet.username
     click_on "Update Tweet"
 
