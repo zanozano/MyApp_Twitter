@@ -73,9 +73,10 @@ end
 
 #
 gem 'faker'
-gem 'bootstrap_pagination'
-gem 'will_paginate'
 gem 'activerecord'
 gem 'sassc'
-gem 'bootstrap', '~> 5.1.0'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'will_paginate-bootstrap'
+gem 'rails-ujs'
 gem 'kaminari'

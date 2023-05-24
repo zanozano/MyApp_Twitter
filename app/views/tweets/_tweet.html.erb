@@ -1,21 +1,30 @@
-<div id="<%= dom_id tweet %>" class="card col-4">
+<div id="<%= dom_id tweet %>" class="card mb-2">
   <div class="card-body">
-    <h5 class="card-title">Profile</h5>
+    <h5 class="card-title">Perfil</h5>
       <div class="d-flex flex-row gap-3 mb-2">
       <%= image_tag tweet.profile, width: 50, height: 50, alt: "Profile Image" %>
       <div class="align-self-center">
         <p class="card-text">
-          <strong>Username:</strong>
+          <strong>Nombre de usuario:</strong>
           <%= tweet.username %>
         </p>
         <p class="card-text m-0">
-          <strong>Description:</strong>
+          <strong>Descripción:</strong>
         </p>
         <p class="card-text">
       <%= tweet.description %>
       </div>
       </div>
     </p>
+    <%# valida que se oculte el boton cuando esta en la ruta show %>
+    <% unless action_name == 'show' %>
+    
+    <div class="d-flex justify-content-end">
+      <%= link_to "Mostrar Tweet", tweet, class: "btn btn-primary mr-2" %>
+      <%= button_to "Eliminar", tweet_path(id), method: :delete, class: "btn btn-danger" %> 
+    </div>
+    
+    <% end %>
   </div>
 </div>
 

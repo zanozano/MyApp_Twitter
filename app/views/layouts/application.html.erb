@@ -6,11 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'rails-ujs' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-  <div class="container">
+  <div class="container d-flex flex-column justify-content-center col-4 gap-2">
     <%= yield %>
   <div>
   </body>

@@ -1,14 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
+<h1 class="mb-4">Twitter</h1>
+<%= link_to "Nuevo Tweet", new_tweet_path, class: "btn btn-info mb-2" %>
 
-<%= link_to "New tweet", new_tweet_path %>
+<%= form_with(url: tweets_path, method: :get, class: "mb-4 d-flex") do |form| %>
+
+    <%= form.text_field :search, placeholder: "Buscar tweets", class: "form-control mr-1" %>
+    <%= form.submit "Buscar", class: "btn btn-primary mr-1" %>
+    <%= link_to "Limpiar", tweets_path, class: "btn btn-secondary", data: { turbolinks: false } %>
+
+<% end %>
+
 <div id="tweets">
   <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
+     <%= render partial: 'tweet', locals: { tweet: tweet, id: tweet.id } %>
   <% end %>
 </div>
-<%= paginate @tweets %>
+
+
+<nav>
+  <ul class="pagination">
+    <%= paginate @tweets %>
+  </ul>
+</nav>
+
+

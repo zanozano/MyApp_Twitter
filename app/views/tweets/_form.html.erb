@@ -1,32 +1,48 @@
-<%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: tweet) do |form| %>
+      <% if tweet.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
 
-      <ul>
-        <% tweet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <ul>
+            <% tweet.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group mb-2">
+        <%= form.label :username, style: "display: block" %>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
+
+      <div class="form-group mb-2">
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group mb-4">
+        <%= form.label :profile, style: "display: block" %>
+
+        <% if action_name == 'edit' %>
+        <%= image_tag tweet.profile, width: 50, height: 50, alt: "Profile Image" %>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+        
+        <% if action_name == 'new' %>
+        <% fake_profile = Faker::Avatar.image %>
+        <img src="<%= fake_profile %>" width="50" height="50" alt="Profile Image" />
+         <%= form.hidden_field :profile, value: fake_profile %>
+        <% end %>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </div>
 
-  <div>
-    <%= form.label :profile, style: "display: block" %>
-    <%= form.text_field :profile %>
-  </div>
+      </div>
 
-  <div>
-    <%= form.submit %>
+      <div class="form-group">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

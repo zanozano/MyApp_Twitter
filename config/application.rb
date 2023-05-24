@@ -1,7 +1,8 @@
 require_relative "boot"
-require 'will_paginate/array'
 require "rails/all"
-require 'bootstrap_pagination'
+require 'will_paginate'
+require 'will_paginate/array'
+require 'will_paginate-bootstrap'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
